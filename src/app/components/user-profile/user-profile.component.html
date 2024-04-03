@@ -1,1 +1,22 @@
-<p>user-profile works!</p>
+<form class="example-form"  (ngSubmit)="getUserInfo()">
+    <div class="form-group">
+      <label for="userName">UserName</label>
+      <input [(ngModel)]="username" type="text" placeholder="Enter Github UserName" id="userName" autocomplete="off"
+        class="form-control mx-sm-3" name="username" />
+    </div>
+    <button type="submit" class="btn-primary">Find User</button>
+</form>
+<div class="container">    
+    <mat-card class="example-card" *ngIf="user">
+        <mat-card-header>
+        <div >
+            <img mat-card-avatar [src]="user.avatar_url" alt="User Avatar" class="example-header-image" >
+        </div>
+        </mat-card-header>
+        <mat-card-title>User Name: {{ user.name }}</mat-card-title>
+        <mat-card-subtitle>User Bio: {{ user.bio }}</mat-card-subtitle>
+        <mat-card-content>
+            <p>Number of repositories: {{ user.public_repos }}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
