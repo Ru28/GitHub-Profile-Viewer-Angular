@@ -26,8 +26,8 @@ export class UserReposComponent {
   }
   
   loadRepositories(): void {
-    this.githubService.getRepositories(this.username).subscribe(repositories => {
-      this.repositories = repositories;
+    this.githubService.getRepositories(this.username).subscribe(data => {
+      this.repositories = data;
     });
   }
 
