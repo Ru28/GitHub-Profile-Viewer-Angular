@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { GithubService } from '../../services/github.service';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import  {MatButtonModule } from '@angular/material/button';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -21,10 +20,8 @@ export class UserProfileComponent {
   constructor(private githubService: GithubService) { }
 
   getUserInfo(){
-    console.log("hello");
     this.githubService.getUser(this.username).subscribe(userData =>{
       this.user = userData;
-      console.log(userData);
     })
   }
 }
