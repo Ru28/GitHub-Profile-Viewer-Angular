@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { GithubService } from '../../services/github.service';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -17,11 +18,17 @@ import { FormsModule } from '@angular/forms';
 export class UserProfileComponent {
   username!:string;
   user!:any;
-  constructor(private githubService: GithubService) { }
+  constructor(private githubService: GithubService,private router: Router) { }
 
   getUserInfo(){
     this.githubService.getUser(this.username).subscribe(userData =>{
       this.user = userData;
     })
+  }
+
+  goToRepositories(): void {
+    this.githubService.setUsername(this.username);
+    console.log(this.username);
+    this.router.navigate(['/repos']);
   }
 }
