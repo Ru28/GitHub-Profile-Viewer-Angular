@@ -11,5 +11,5 @@
       </mat-card-content>
     </mat-card>
   
-    <mat-paginator [length]="repositories.length" [pageSize]="pageSize" (page)="onPageChange($event)"></mat-paginator>
+    <mat-paginator *ngIf="repositories.length !== 0" [length]="repositories.length" [pageSize]="pageSize" (page)="onPageChange($event)"></mat-paginator>
 </div>
