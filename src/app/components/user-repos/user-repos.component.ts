@@ -3,17 +3,18 @@ import { ActivatedRoute } from '@angular/router';
 import { GithubService } from '../../services/github.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-repos',
   standalone: true,
-  imports: [MatCardModule, MatPaginatorModule],
+  imports: [MatCardModule, MatPaginatorModule,CommonModule],
   templateUrl: './user-repos.component.html',
   styleUrl: './user-repos.component.css'
 })
 export class UserReposComponent {
   username!: string;
-  repositories!: any[];
+  repositories: any[]=[];
   currentPage: number = 1;
   pageSize: number = 10;
 
